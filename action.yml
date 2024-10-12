@@ -20,7 +20,7 @@ runs:
         scripts=$(cat package.json | jq -c '.scripts | keys')
         echo "scripts=$scripts" >> $GITHUB_OUTPUT
       shell: bash
-    - if: ${{ contains(steps.scripts.outputs.scripts, 'build') && !contains(inputs.except, 'build') }}
+    - if: ${{ contains(steps.scripts.outputs.scripts, 'build') }}
       run: |
         npm ci || npm install
         npm run build
