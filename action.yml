@@ -25,7 +25,7 @@ runs:
         npm ci || npm install
         npm run build
       shell: bash
-    - run: npm publish --provenance --access public
+    - run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}
       shell: bash
