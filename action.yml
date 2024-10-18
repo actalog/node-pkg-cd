@@ -25,8 +25,7 @@ runs:
         npm ci || npm install
         npm run build
       shell: bash
-    - run: npm publish --access public
+    - run: npm publish --access public --no-verify
       env:
-        HUSKY: 0
         NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}
       shell: bash
