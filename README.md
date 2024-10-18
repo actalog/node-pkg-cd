@@ -1,1 +1,1 @@
-# node-package-cd
+# Node package CD
