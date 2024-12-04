@@ -1,4 +1,8 @@
-name: Node package CD
+name: '@actalog/node-pkg-cd'
+description: Automates Node.js package publishing to npm registry
+branding:
+  icon: package
+  color: green
 
 inputs:
   node-auth-token:
@@ -6,6 +10,9 @@ inputs:
   node-version:
     required: false
     default: 20
+  registry-url:
+    required: false
+    default: https://registry.npmjs.org
 
 runs:
   using: composite
@@ -14,7 +21,7 @@ runs:
       with:
         node-version: ${{ inputs.node-version }}
         cache: npm
-        registry-url: https://registry.npmjs.org
+        registry-url: ${{ inputs.registry-url }}
     - id: scripts
       run: |
         scripts=$(cat package.json | jq -c '.scripts | keys')
